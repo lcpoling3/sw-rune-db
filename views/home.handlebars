@@ -1,0 +1,87 @@
+<div class="form-group" style="width:500px">
+<input class="form-control" type="text" name="home_search" id="home_search" placeholder="Search by monster"/>
+</div>
+
+<!--<article id="mons">
+<dl id="monList">
+{{#each recs}}
+	<dt class="monster">{{this.monster}}</dt>
+
+	{{#if this.sets.[2]}}
+	<dd>Sets: {{this.sets.[0]}} / {{this.sets.[1]}} / {{this.sets.[2]}}</dd>
+	{{else}}
+	<dd>Sets: {{this.sets.[0]}} / {{this.sets.[1]}}</dd>
+	{{/if}}
+
+	<dd>2/4/6 Stats: {{this.stats.[0]}} / {{this.stats.[1]}} / {{this.stats.[2]}}</dd>
+	<dd>Rating: {{this.rating}}</dd>
+	<dd>Description: {{this.description}}</dd>
+	<br>
+{{/each}}
+</dl>
+</article>
+-->
+<div id="mons" class="panel-group">
+{{#each recs}}
+	<div class="panel panel-default">
+		<div class="panel-heading">{{this.monster}}</div>
+		<div class="panel-body">
+			{{#if this.sets.[2]}}
+				<p>Sets: {{this.sets.[0]}} / {{this.sets.[1]}} / {{this.sets.[2]}}</p>
+			{{else}}
+				<p>Sets: {{this.sets.[0]}} / {{this.sets.[1]}}</p>
+			{{/if}}
+
+			<p>2/4/6 Stats: {{this.stats.[0]}} / {{this.stats.[1]}} / {{this.stats.[2]}}</p>
+			<p>Rating: {{this.rating}}</p>
+			<p>Description: {{this.description}}</p>
+		</div>
+	</div>
+{{/each}}
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script>
+        $("#home_search").on('keyup',function(){
+
+            var monster = $("#home_search").val();
+
+            monster = monster.charAt(0).toUpperCase() + monster.substring(1,monster.length).toLowerCase();
+
+
+            $.get("/api/getRecommendations/" + monster, function(data){
+           		$("#mons").empty();
+
+
+	            if (data.length == 0){
+	                $("#mons").append("<br>No recommendations for that monster")
+	            }
+
+	            data = data.reverse();
+           		for (var i = 0; i < data.length; i++){
+	                var monster  = data[i].monster;
+	                var sets = data[i].sets;
+	                var stats = data[i].stats;
+	                var rating = data[i].rating;
+	                var description = data[i].description;
+
+	                $("#mons").append("<div id=\"panel" + i + "\"" + "class=\"panel panel-default\">");
+
+	                $("#panel" + i).append("<div class=\"panel-heading\">" + monster + "</div>");
+
+	                $("#panel" + i).append("<div id=\"pbody" + i + "\"" + "class=\"panel-body\">");
+	                if (sets[2] != ''){
+	                	$("#pbody" + i).append("<p>Sets: " + sets[0] + " / " + sets[1] + " / " + sets[2] + "</p>");
+	                } else{
+	                	$("#pbody" + i).append("<p>Sets: " + sets[0] + " / " + sets[1] + "</p>");
+	                }
+	                $("#pbody" + i).append("<p>2/4/6 Stats: " + stats[0] + " / " + stats[1] + " / " + stats[2] + "</p>");
+	                $("#pbody" + i).append("<p>Rating: " + rating + "</p>");
+	                $("#pbody" + i).append("<p>Description: " + description + "</p>");
+            	}
+            })
+        })
+</script>
+
+

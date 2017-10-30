@@ -1,0 +1,63 @@
+
+{{#if mon}}
+	<h3>{{mon}}</h3>
+	<div id="mons" class="panel-group">
+	{{#each monlist}}
+		<div class="panel panel-default">
+			{{#if this.sets.[2]}}
+				<div class="panel-heading">{{this.sets.[0]}} / {{this.sets.[1]}} / {{this.sets.[2]}}</div>
+			{{else}}
+				<div class="panel-heading">{{this.sets.[0]}} / {{this.sets.[1]}}</div>
+			{{/if}}
+
+			<div class="panel-body">
+				<p>2/4/6 Stats: {{this.stats.[0]}} / {{this.stats.[1]}} / {{this.stats.[2]}}</p>
+				<p>Rating: {{this.rating}}</p>
+				<p>Description: {{this.description}}</p>
+			</div>
+		</div>
+	{{/each}}
+	</div>
+
+{{else if rune}}
+	<h3>{{rune}}</h3>
+	<div id="mons" class="panel-group">
+	{{#each monlist}}
+	<div class="panel panel-default">
+			<div class="panel-heading">{{this.monster}}</div>
+			<div class="panel-body">
+				{{#if this.sets.[2]}}
+					<p>Sets: {{this.sets.[0]}} / {{this.sets.[1]}} / {{this.sets.[2]}}</p>
+				{{else}}
+					<p>Sets: {{this.sets.[0]}} / {{this.sets.[1]}}</p>
+				{{/if}}
+
+				<p>2/4/6 Stats: {{this.stats.[0]}} / {{this.stats.[1]}} / {{this.stats.[2]}}</p>
+				<p>Rating: {{this.rating}}</p>
+				<p>Description: {{this.description}}</p>
+			</div>
+		</div>
+	{{/each}}
+	</div>
+
+{{else}}
+<h3>{{stat}}</h3>
+	<div id="mons" class="panel-group">
+	{{#each monlist}}
+	<div class="panel panel-default">
+			<div class="panel-heading">{{this.monster}}</div>
+			<div class="panel-body">
+				{{#if this.sets.[2]}}
+					<p>Sets: {{this.sets.[0]}} / {{this.sets.[1]}} / {{this.sets.[2]}}</p>
+				{{else}}
+					<p>Sets: {{this.sets.[0]}} / {{this.sets.[1]}}</p>
+				{{/if}}
+
+				<p>2/4/6 Stats: {{this.stats.[0]}} / {{this.stats.[1]}} / {{this.stats.[2]}}</p>
+				<p>Rating: {{this.rating}}</p>
+				<p>Description: {{this.description}}</p>
+			</div>
+		</div>
+	{{/each}}
+	</div>
+{{/if}}

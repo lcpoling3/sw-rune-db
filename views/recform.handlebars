@@ -1,0 +1,126 @@
+{{#if saved}}
+<div class="alert alert-success">Monster saved!</div>
+{{/if}}
+
+<div class="container" style="width:500px">
+<form id="recommendation" action="/api/recommendations" method="post">
+
+	<div class="form-group">
+		<label for="monster">Monster:</label>
+		<input type="text" class="form-control" name="monster" id="monster" placeholder="Monster name" required>
+	</div>
+
+	<div class="form-group">
+		<label for="set1">Rune Set 1:</label>
+		<input list="sets" name="set1" id="set1" class="form-control" required>
+		<datalist id="sets">
+			<option value="Energy">
+			<option value="Fatal">
+			<option value="Blade">
+			<option value="Swift">
+			<option value="Focus">
+			<option value="Guard">
+			<option value="Endure">
+			<option value="Shield">
+			<option value="Revenge">
+			<option value="Will">
+			<option value="Nemesis">
+			<option value="Vampire">
+			<option value="Destroy">
+			<option value="Despair">
+			<option value="Violent">
+			<option value="Rage">
+			<option value="Fight">
+			<option value="Determination">
+			<option value="Enhance">
+			<option value="Accuracy">
+			<option value="Tolerance">
+			<option value="Doesn't Matter">
+		</datalist>
+	</div>
+	<div class="form-group">
+		<label for="set2">Rune Set 2:</label>
+		<input list="sets" name="set2" id="set2" class="form-control" required>
+		<datalist id="sets">
+			<option value="Energy">
+			<option value="Fatal">
+			<option value="Blade">
+			<option value="Swift">
+			<option value="Focus">
+			<option value="Guard">
+			<option value="Endure">
+			<option value="Shield">
+			<option value="Revenge">
+			<option value="Will">
+			<option value="Nemesis">
+			<option value="Vampire">
+			<option value="Destroy">
+			<option value="Despair">
+			<option value="Violent">
+			<option value="Rage">
+			<option value="Fight">
+			<option value="Determination">
+			<option value="Enhance">
+			<option value="Accuracy">
+			<option value="Tolerance">
+			<option value="Doesn't Matter">
+		</datalist>
+	</div>
+	<div class="form-group">
+		<label for="set3">Rune Set 3:</label>
+		<input list="sets" name="set3" id="set3" class="form-control">
+		<datalist id="sets">
+			<option value="Energy">
+			<option value="Fatal">
+			<option value="Blade">
+			<option value="Swift">
+			<option value="Focus">
+			<option value="Guard">
+			<option value="Endure">
+			<option value="Shield">
+			<option value="Revenge">
+			<option value="Will">
+			<option value="Nemesis">
+			<option value="Vampire">
+			<option value="Destroy">
+			<option value="Despair">
+			<option value="Violent">
+			<option value="Rage">
+			<option value="Fight">
+			<option value="Determination">
+			<option value="Enhance">
+			<option value="Accuracy">
+			<option value="Tolerance">
+			<option value="Doesn't Matter">
+		</datalist>
+	</div>
+
+	<div class="form-group">
+		<label for="slot2">Slot 2 Stat:</label>
+		<input type="text" class="form-control" name="slot2" id="slot2" required/>
+	</div>
+	<div class="form-group">
+		<label for="slot4">Slot 4 Stat:</label>
+		<input type="text" class="form-control" name="slot4" id="slot4" required/>
+	</div>
+	<div class="form-group">
+		<label for="slot6">Slot 6 Stat:</label>
+		<input type="text" class="form-control" name="slot6" id="slot6" required/>
+	</div>
+
+	<div class="form-group">
+		<label for="rating">Rating:</label>
+		<input type="number" class="form-control" min="1" max="100" name="rating" id="rating" placeholder="1-100" required/>
+	</div>
+
+	<div class="form-group">
+		<label for="description">Description:</label>
+		
+		<textarea rows="4" cols="50" name="description" id="description" class="form-control"></textarea>
+		
+	</div>
+
+	<input type="submit" value="Submit">
+
+</form>
+</div>

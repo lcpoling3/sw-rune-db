@@ -1,0 +1,16 @@
+
+
+{{#if monster}}
+{{#each toList}}
+<p><a href="/monsters/{{this}}">{{this}}</a></p>
+{{/each}}
+
+{{else if rune}}
+{{#each toList}}
+<p><a href="/runes/{{this}}">{{this}}</a></p>
+{{/each}}
+{{else if stat}}
+{{#each toList}}
+<p><a href="/stats/{{this}}">{{this}}</a></p>
+{{/each}}
+{{/if}}
